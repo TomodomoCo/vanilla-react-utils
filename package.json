@@ -1,0 +1,45 @@
+{
+  "name": "vanilla-react-utils",
+  "version": "1.0.0",
+  "description": "The base functionality of the client-side Tomodomo community apps",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "webpack --mode=production",
+    "dev": "webpack --mode=development --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TomodomoCo/vanilla-react-utils.git"
+  },
+  "keywords": [
+    "tomodomo",
+    "community"
+  ],
+  "author": "Bogdan Dimofte",
+  "bugs": {
+    "url": "https://github.com/TomodomoCo/vanilla-react-utils/issues"
+  },
+  "homepage": "https://github.com/TomodomoCo/vanilla-react-utils#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^8.2.6",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "clean-webpack-plugin": "^0.1.19",
+    "path": "^0.12.7",
+    "webpack": "^4.16.1",
+    "webpack-cli": "^3.1.0"
+  },
+  "dependencies": {
+    "whatwg-fetch": "^2.0.4"
+  },
+  "peerDependencies": {
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
+  }
+}
