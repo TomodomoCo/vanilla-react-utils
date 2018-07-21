@@ -19,7 +19,7 @@ yarn dev
 We don't use TDD currently (we will, hopefully) and we don't publish the package.
 So, currently, we test the code locally in the context of the whole app.
 
-To develop and test things in this workflow:
+#### Setup local environment
 1. Clone this repo and install deps
 1. Use the package in the main app by adding it to its `dependencies` in `package.json`, e.g.:
     ```
@@ -32,4 +32,11 @@ To develop and test things in this workflow:
     ```
 1. Run `yarn dev` in both the package dir and main dir
 
-Note: dir `tomodomo_modules` is configured in gulp (watch) and gitignore of the main app.
+#### Notes
+* Folder `tomodomo_modules` is configured in gulp (watch) and gitignore of the main app.
+* `react` and `react-dom` are peerDependencies and should not be included in `devDependencies`
+in the current setup.
+If/when we change to a TDD approach, they should be included in the `devDependencies`
+and the packages should be added via the git repo (or npm registry);
+but this will break the current workflow (packages in the local path)
+
