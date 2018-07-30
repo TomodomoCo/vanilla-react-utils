@@ -21,15 +21,12 @@ So, currently, we test the code locally in the context of the whole app.
 
 #### Setup local environment
 1. Clone this repo and install deps
-1. Use the package in the main app by adding it to its `dependencies` in `package.json`, e.g.:
-    ```
-    "vanilla-react-utils": "./tomodomo_modules/vanilla-react-utils"
-    ```
 1. Make a symlink from this npm to `node_modules`, eg:
     ```bash
     # in the root dir of the main app
     cd node_modules && ln -s ../tomodomo_modules/vanilla-react-utils vanilla-react-utils
     ```
+    _Note that this step would have to be repeated after `yarn` is used to update the node modules._
 1. Run `yarn dev` in both the package dir and main dir
 
 #### Notes
