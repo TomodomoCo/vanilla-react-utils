@@ -7,4 +7,6 @@ export {
   getUserUrl,
   truncateText,
 } from './dataProcessing'
-export { METHODS, fetchJson, postData } from './apiPrimitives'
+export { METHODS, fetchJson, postData } from './api/apiPrimitives'
+export { getProfile, tagSearch, getUserAccess } from './api/users'
+export { getCategories } from './api/categories'
