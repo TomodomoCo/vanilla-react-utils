@@ -1,5 +1,5 @@
 {
-  "name": "vanilla-react-utils",
+  "name": "@tomodomo/vanilla-react-utils",
   "version": "1.0.0",
   "description": "The base functionality of the client-side Tomodomo community apps",
   "main": "dist/index.js",
