@@ -6,11 +6,18 @@ const { URL_TOMODOMO_API } = window.tomodomo.config
 export function getProfile() {
   return fetchJson('/profile.json').then(userData => {
     const p = userData.Profile
-    return {
-      userID: p.UserID,
-      name: p.Name,
-      photoUrl: p.Photo,
-    }
+
+    // Temporarily need to also fetch the user from a second API
+    // to work around bugs in Vanilla. :(
+    return fetchJson('/api/v2/users/' + p.UserID).then(userData => {
+      const p = userData
+
+      return {
+        userID: p.userID,
+        name: p.name,
+        photoUrl: p.photoUrl,
+      }
+    })
   })
 }
 
