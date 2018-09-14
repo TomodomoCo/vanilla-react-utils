@@ -38,9 +38,15 @@ export function stripHtmlTags(html, options = { excludeUserMentions: true }) {
   // we replace the < and > signs with triple-curly-brackets,
   // then we change them back after the tags have been removed
   if (options.excludeUserMentions) {
-    preparedHtml = preparedHtml.replace(/<a .*\/profile\/.*>@[^<]+<\/a>/g, match =>
-      match.replace(/</g, '{{{').replace(/>/g, '}}}')
-    )
+    // callback to use in replacing the tag signs
+    const protectorCb = match => match.replace(/</g, '{{{').replace(/>/g, '}}}')
+    preparedHtml = preparedHtml
+      // allow user mentions:
+      // .replace(/<a .*\/profile\/.*>@[^<]+<\/a>/g, protectorCb) // not needed now because of:
+      .replace(/<a .*>.*<\/a>/g, protectorCb)
+      .replace(/<img .+?\/>/g, protectorCb)
+      .replace(/<p>|<\/p>/g, protectorCb)
+      .replace(/<br *\/>/g, protectorCb)
   }
   const finalHtml = preparedHtml
     .replace(/<\/?[^>]+(>+|$)/g, '') // remove tags
