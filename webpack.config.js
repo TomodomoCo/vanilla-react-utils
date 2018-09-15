@@ -38,9 +38,6 @@ const config = {
   },
   plugins: [
     new CleanWebpackPlugin(['build']),
-    // ...(process.env.NODE_ENV !== 'production'
-    //   ? []
-    //   : [new webpack.optimize.UglifyJsPlugin({ sourceMap: true })]),
   ],
   stats: {
     children: false,
