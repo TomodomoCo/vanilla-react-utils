@@ -33,11 +33,11 @@ const config = {
       },
     ],
   },
+  optimization: {
+    minimize: process.env.NODE_ENV === 'production',
+  },
   plugins: [
     new CleanWebpackPlugin(['build']),
-    ...(process.env.NODE_ENV !== 'production'
-      ? []
-      : [new webpack.optimize.UglifyJsPlugin({ sourceMap: true })]),
   ],
   stats: {
     children: false,
