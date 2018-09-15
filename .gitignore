@@ -1,5 +1,6 @@
 # Compiled files and dependencies
 node_modules/
+dist/
 
 # Hidden files, caches, and misc.
 .DS_Store
