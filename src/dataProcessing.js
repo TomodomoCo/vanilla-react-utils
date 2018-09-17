@@ -41,18 +41,14 @@ export function stripHtmlTags(html, options = { excludeUserMentions: true }) {
     // callback to use in replacing the tag signs
     const protectorCb = match => match.replace(/</g, '{{{').replace(/>/g, '}}}')
     preparedHtml = preparedHtml
-      // allow user mentions:
-      // .replace(/<a .*\/profile\/.*>@[^<]+<\/a>/g, protectorCb) // not needed now because of:
-      .replace(/<a .*>.*<\/a>/g, protectorCb)
-      .replace(/<img .+?\/>/g, protectorCb)
-      .replace(/<p>|<\/p>/g, protectorCb)
-      .replace(/<br *\/>/g, protectorCb)
+      .replace(/<(img|br).*?\/>/g, protectorCb)
+      .replace(/<(a|ul|ol|li|p|strong|em)( .*?)?>/g, protectorCb)
+      .replace(/<\/(a|ul|ol|li|p|strong|em)>/g, protectorCb)
   }
   const finalHtml = preparedHtml
     .replace(/<\/?[^>]+(>+|$)/g, '') // remove tags
     .replace(/{{{/g, '<')
     .replace(/}}}/g, '>')
-    // .replace(/&[^;]+(;|$)/g, ' ') // remove special chars like &nbsp;
   return <span dangerouslySetInnerHTML={{ __html: finalHtml }} />
 }
 /**
