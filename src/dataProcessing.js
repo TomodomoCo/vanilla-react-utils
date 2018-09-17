@@ -42,8 +42,7 @@ export function stripHtmlTags(html, options = { excludeUserMentions: true }) {
     const protectorCb = match => match.replace(/</g, '{{{').replace(/>/g, '}}}')
     preparedHtml = preparedHtml
       .replace(/<(img|br).*?\/>/g, protectorCb)
-      .replace(/<(a|ul|ol|li|p|strong|em)( .*?)?>/g, protectorCb)
-      .replace(/<\/(a|ul|ol|li|p|strong|em)>/g, protectorCb)
+      .replace(/<(\/)?(a|ul|ol|li|p|strong|em)( .*?)?>/g, protectorCb)
   }
   const finalHtml = preparedHtml
     .replace(/<\/?[^>]+(>+|$)/g, '') // remove tags
