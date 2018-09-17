@@ -52,7 +52,7 @@ export function stripHtmlTags(html, options = { excludeUserMentions: true }) {
     .replace(/<\/?[^>]+(>+|$)/g, '') // remove tags
     .replace(/{{{/g, '<')
     .replace(/}}}/g, '>')
-    .replace(/&[^;]+(;|$)/g, ' ') // remove special chars like &nbsp;
+    // .replace(/&[^;]+(;|$)/g, ' ') // remove special chars like &nbsp;
   return <span dangerouslySetInnerHTML={{ __html: finalHtml }} />
 }
 /**
